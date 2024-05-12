@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import CostContext from './CostContext';
 
+import './CartElement.css';
+
 export default function CartElement({index, item}) {
     const context = useContext(CostContext);
     const [numItems, setNumItems] = useState(item.quantity);
