@@ -1,3 +1,9 @@
+A shopping site for squishmallows with the following features:
+- [x] can view squishmallow items
+- [x] can add squishmallows to carts
+- [x] can see total price of squishmallows in cart
+- [x] can edit cart items    
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
