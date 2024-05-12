@@ -4,27 +4,31 @@
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* or absolute */
+    z-index: 1000; /* any high value */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .modal-info {
     position: relative;
-    background-color: white;
     border-radius: 5px;
     padding: 20px;
     width: 400px;
+    height: 250px;
 }
 
 .modal-info > button:nth-child(1) {
     position: absolute;
     top: 0;
     right: 0;
-    border-radius: 8px;
     border: none;
     width: 30px;
-    height: 20px;
+    height: 30px;
     font-weight: bold;
+    font-size: 1.6em;
     cursor: pointer;
+    background-color: white;
 }
 
 .add-to-cart-buttons {
