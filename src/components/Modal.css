@@ -1,0 +1,79 @@
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-info {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+}
+
+.modal-info > button:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 8px;
+    border: none;
+    width: 30px;
+    height: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-to-cart-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: #f0f0f0;
+    margin-right: 35px;
+    background-color: #8B008B;
+    border-radius: 8px;
+}
+
+.quantity > button:nth-child(1),
+.quantity > p {
+    margin-right: 55px;
+}
+
+.quantity > p {
+    color: white;
+    font-weight: bold;
+}
+
+.quantity > button:nth-child(1),
+.quantity > button:nth-child(3) {
+    border-radius: 8px;
+    width: 60px;
+    height: 30px;
+    background-color: #8B008B;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.add-to-cart-buttons > button {
+    border-radius: 8px;
+    background-color: #8B008B;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.add-to-cart-buttons > button:hover {
+    background-color: rgb(139, 0, 139, 0.85);
+}
+
