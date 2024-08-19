@@ -20,6 +20,15 @@
     transform: translateX(100%);
 }
 
+.close {
+    border-radius: 8px;
+    background-color: #8B008B;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+}
+
 
 .another-header {
     display: flex;

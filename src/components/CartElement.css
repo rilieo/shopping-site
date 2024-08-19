@@ -27,6 +27,11 @@
     border-radius: 50%;
 }
 
+.cart-squish-name {
+    width: 45%;
+    margin-left: 25px;
+}
+
 .price {
     display: flex;
     align-items: center;
@@ -35,6 +40,8 @@
     margin-right: 35px;
     background-color: #8B008B;
     border-radius: 8px;
+    position: absolute;
+    right: 10px;
 }
 
 .price > button:nth-child(1),

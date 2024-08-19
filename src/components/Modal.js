@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import Decimal from 'decimal.js'
 import CostContext from './CostContext'
 
 import './Modal.css'
@@ -24,7 +25,7 @@ export default function Modal({ selectedItem, isOpen, isClosed }) {
     }
 
     function handleAdd() {
-        context.costHandler({price: selectedItem.price * numItems});
+        context.costHandler({price: Decimal.mul(selectedItem.price, numItems)});
         context.itemHandler({item: selectedItem, quantity: numItems });
         isClosed();
     }
@@ -35,9 +36,10 @@ export default function Modal({ selectedItem, isOpen, isClosed }) {
             <div className="modal-info">
                 <button onClick={isClosed}>x</button>
                 <h4>Squishmallows</h4>
+                <br/>
                 <h2>{selectedItem.name}</h2>
                 <br/>
-                <p>${selectedItem.price}</p>
+                <p>${selectedItem.price.toString()}</p>
                 <br/>
                 <p>{selectedItem.description}</p>
                 <br/>

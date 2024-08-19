@@ -1,28 +1,32 @@
 import React, { useState, useContext } from 'react'
+import Decimal from 'decimal.js';
 import CostContext from './CostContext';
 
 import './CartElement.css';
 
-export default function CartElement({index, item}) {
+export default function CartElement({index, squish}) {
     const context = useContext(CostContext);
-    const [numItems, setNumItems] = useState(item.quantity);
+    const [numItems, setNumItems] = useState(squish.quantity);
 
     function handleDecrement() {
-        if (numItems > 1) {
-            setNumItems(numItems - 1);
-            context.costHandler({price: -item.item.price});
+        if (numItems >= 1) {
+
+            context.costHandler({price: -squish.item.price});
             context.quantityHandler({index: index, quantity: numItems - 1});
-        } else if (numItems === 1) {
-            context.costHandler({price: -item.item.price});
-            context.quantityHandler({index: index, quantity: numItems - 1});
-            context.removeItemHandler(index);
+
+            if (numItems === 1) {
+                context.removeItemHandler(index);
+            } else {
+                setNumItems(numItems - 1);
+            }
         }
+
     }
     
     function handleIncrement() {
         if (numItems < 9) {
             setNumItems(numItems + 1);
-            context.costHandler({price: item.item.price});
+            context.costHandler({price: Decimal(squish.item.price)});
             context.quantityHandler({index: index, quantity: numItems + 1});
         }
     }
@@ -30,8 +34,10 @@ export default function CartElement({index, item}) {
 
   return (
     <div key={index} className="cart-items">
-        <img src={item.item.image} alt={item.item.name} />
-        <h2>{item.item.name}</h2>
+        <img className="cart-squish-img" src={squish.item.image} alt={squish.item.name} />
+        <div className="cart-squish-name">
+            <h2>{squish.item.name}</h2>
+        </div>
         <div className="price">
             <button onClick={handleDecrement}>-</button>
             <p>{numItems}</p>

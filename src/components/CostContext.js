@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Decimal from "decimal.js";
 
 const CostContext = createContext();
 
@@ -7,11 +8,8 @@ export function CostContextProvider( props ) {
     const [items, setItems] = useState([]);
 
     const costHandler = ({price}) => {
-        if (cost + price < 0.05) {
-            setCost(0);
-        } else {
-            setCost(cost + price); 
-        }
+        let newCost = new Decimal(cost).plus(price);
+        setCost(newCost);
     }
 
     const itemHandler = ({item, quantity}) => {
@@ -30,7 +28,16 @@ export function CostContextProvider( props ) {
     }
 
   return (
-    <CostContext.Provider value={{ cost: cost, setCost: setCost, costHandler: costHandler, items: items, setItems: setItems, itemHandler: itemHandler, quantityHandler: quantityHandler, removeItemHandler: removeItemHandler }}>
+    <CostContext.Provider value={{ 
+        cost: cost, 
+        setCost: setCost, 
+        costHandler: costHandler, 
+        items: items, 
+        setItems: setItems, 
+        itemHandler: itemHandler, 
+        quantityHandler: quantityHandler, 
+        removeItemHandler: removeItemHandler 
+    }}>
         {props.children}
     </CostContext.Provider>
   )

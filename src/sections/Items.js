@@ -30,7 +30,6 @@ export default function Items() {
             setShowModal(true);
         }
         setTotal(context.cost);
-        console.log(context.cost);
     }, [context.cost, selectedItem]);
 
   return (
@@ -38,20 +37,20 @@ export default function Items() {
         <div className="header">
             <img className="logo" src={logo} alt="logo"/>
             <div className="cart-container">
-                <p>${total}</p>
+                <p>${total.toString()}</p>
                 <button className="cart-button" onClick={toggleCart}>Cart</button>
             </div>
         </div>
         <div className="container">
             <div className="items-container">
-                {squishmallows.map((item, index) => (
-                    <div onClick={() => setSelectedItem(item)}>
-                        <MappedElement index={index} item={item}/>
+                {squishmallows.map((squish, index) => (
+                    <div onClick={() => setSelectedItem(squish)}>
+                        <MappedElement index={index} squish={squish}/>
                     </div>
                 ))}
             </div>
         {showModal && <Modal selectedItem={selectedItem} isOpen={showModal} isClosed={handleCloseModel}/>}
-        {open && <Cart isOpen={open} items={context.items} toggle={toggleCart}/>}
+        {open && <Cart isOpen={open} squishes={context.items} toggle={toggleCart}/>}
         </div>
 
     </>
